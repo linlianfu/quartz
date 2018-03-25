@@ -1,0 +1,3 @@
+名词定义：
+job类:实现Job接口的类
+job:保存后的JobDetail,也指代“job定义”或者“JobDetail实例”
