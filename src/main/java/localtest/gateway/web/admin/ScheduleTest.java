@@ -1,4 +1,4 @@
-package localtest;
+package localtest.gateway.web.admin;
 
 import priv.llf.quartz.IQuartzManager;
 import priv.llf.quartz.dto.QuartzDto;

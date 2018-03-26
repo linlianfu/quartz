@@ -1,4 +1,4 @@
-package localtest;
+package localtest.gateway.web.admin;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
