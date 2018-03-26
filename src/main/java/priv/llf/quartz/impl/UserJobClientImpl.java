@@ -1,11 +1,13 @@
 package priv.llf.quartz.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.JobDetailImpl;
 import org.quartz.impl.StdSchedulerFactory;
+import org.springframework.stereotype.Service;
 import priv.llf.quartz.IUserJobClient;
 import priv.llf.quartz.dto.UserJobDetail;
 
@@ -14,9 +16,12 @@ import priv.llf.quartz.dto.UserJobDetail;
  * @Since: 2018/3/24 21:32
  * @Description:
  */
-
+@Slf4j
+@Service
 public class UserJobClientImpl implements IUserJobClient {
-
+    UserJobClientImpl(){
+        log.info("UserJobClientImpl实例化");
+    }
 
     public boolean execute(UserJobDetail userJobDetail) throws Exception {
         try {

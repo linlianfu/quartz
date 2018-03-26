@@ -8,6 +8,7 @@ import org.quartz.JobExecutionException;
 import org.quartz.PersistJobDataAfterExecution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
+import priv.llf.quartz.impl.UserJobClientImpl;
 
 /**
  * @Author: calvin
@@ -20,6 +21,8 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 public class QuartzJobBeanTest extends QuartzJobBean {
     @Autowired
     SimpleService simpleService;
+    @Autowired
+    UserJobClientImpl userJobClient;
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         simpleService.testMethod1();

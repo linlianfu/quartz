@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 @Service("simpleService")
 public class SimpleService {
     private static final long serialVersionUID = 122323233244334343L;
-
+    SimpleService(){
+        log.info("simpleService实例化");
+    }
     public void testMethod1(){
         //这里执行定时调度业务
         log.info("testMethod1.......1");
