@@ -9,19 +9,19 @@
         <property name="configLocation" value="classpath:config/properties/quartz.properties" />
         <property name="triggers">
             <list>
-                <ref bean="trigger1" />
+                <ref bean="trigger-llf-ten-second" />
             </list>
         </property>
     </bean>
 
-    <bean id="jobDetail1" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-        <property name="jobClass"><value>localtest.service.schedule.MyQuartzJobBean1</value>
+    <bean id="jobDetail-llf" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass"><value>localtest.service.schedule.QuartzJobBeanTest</value>
         </property>
         <property name="durability" value="true" />
         <property name="requestsRecovery" value="true" />
     </bean>
-    <bean id="trigger1" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-        <property name="jobDetail" ref="jobDetail1" />
+    <bean id="trigger-llf-ten-second" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail-llf" />
         <property name="cronExpression" value="0/10 * * * * ?" />
     </bean>
 </beans>

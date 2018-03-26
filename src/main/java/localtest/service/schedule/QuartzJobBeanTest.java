@@ -17,7 +17,7 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 @Slf4j
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution// 不允许并发执行
-public class MyQuartzJobBean1 extends QuartzJobBean {
+public class QuartzJobBeanTest extends QuartzJobBean {
     @Autowired
     SimpleService simpleService;
     @Override
