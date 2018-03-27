@@ -4,9 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean name="quartz-llf" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <property name="dataSource"><ref bean="dataSource" /></property>
+        <property name="dataSource" ref="dataSource"/>
         <property name="applicationContextSchedulerContextKey" value="applicationContextKey" />
         <property name="configLocation" value="classpath:config/properties/quartz.properties" />
+        <property name="jobFactory" ref="jobFactory"/>
         <property name="triggers">
             <list>
                 <ref bean="trigger-llf-ten-second" />
@@ -24,4 +25,7 @@
         <property name="jobDetail" ref="jobDetail-llf" />
         <property name="cronExpression" value="0/10 * * * * ?" />
     </bean>
+    <!--自定义生成job的工厂-->
+    <bean id="jobFactory" class="priv.llf.quartz.SchedulerFactoryBean"></bean>
+
 </beans>

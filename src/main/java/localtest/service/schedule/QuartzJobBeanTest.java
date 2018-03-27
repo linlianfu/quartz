@@ -18,7 +18,7 @@ import priv.llf.quartz.impl.UserJobClientImpl;
 @Slf4j
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution// 不允许并发执行
-public class QuartzJobBeanTest extends QuartzJobBean {
+public class QuartzJobBeanTest extends QuartzJobBean{
     @Autowired
     SimpleService simpleService;
     @Autowired
