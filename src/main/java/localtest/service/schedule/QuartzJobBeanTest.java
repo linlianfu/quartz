@@ -2,13 +2,8 @@ package localtest.service.schedule;
 
 import localtest.service.SimpleService;
 import lombok.extern.slf4j.Slf4j;
-import org.quartz.DisallowConcurrentExecution;
-import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
-import org.quartz.PersistJobDataAfterExecution;
+import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.quartz.QuartzJobBean;
-import priv.llf.quartz.impl.UserJobClientImpl;
 
 /**
  * @Author: calvin
@@ -18,13 +13,12 @@ import priv.llf.quartz.impl.UserJobClientImpl;
 @Slf4j
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution// 不允许并发执行
-public class QuartzJobBeanTest extends QuartzJobBean{
+public class QuartzJobBeanTest implements Job{
     @Autowired
     SimpleService simpleService;
-    @Autowired
-    UserJobClientImpl userJobClient;
+
     @Override
-    protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
+    public void execute(JobExecutionContext context) throws JobExecutionException {
         simpleService.testMethod1();
     }
 }

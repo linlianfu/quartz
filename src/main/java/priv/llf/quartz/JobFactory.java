@@ -10,7 +10,7 @@ import org.springframework.scheduling.quartz.AdaptableJobFactory;
  * @Since: 2018/3/27 20:39
  * @Description:
  */
-public class SchedulerFactoryBean extends AdaptableJobFactory {
+public class JobFactory extends AdaptableJobFactory {
     //这个对象Spring会帮我们自动注入进来,也属于Spring技术范畴.
     @Autowired
     private AutowireCapableBeanFactory capableBeanFactory;

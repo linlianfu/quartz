@@ -17,11 +17,7 @@ public class SimpleService {
     }
     public void testMethod1(){
         //这里执行定时调度业务
-        log.info("testMethod1.......1");
-        System.out.println("2--testMethod1......."+System.currentTimeMillis()/1000);
+        log.info("定时器任务开始执行.......");
     }
 
-    public void testMethod2(){
-        log.info("testMethod2.......2");
-    }
 }

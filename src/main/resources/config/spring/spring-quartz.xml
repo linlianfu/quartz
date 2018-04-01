@@ -10,22 +10,24 @@
         <property name="jobFactory" ref="jobFactory"/>
         <property name="triggers">
             <list>
-                <ref bean="trigger-llf-ten-second" />
+                <ref bean="exportQuestion_trigger" />
             </list>
         </property>
     </bean>
 
-    <bean id="jobDetail-llf" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-        <property name="jobClass"><value>localtest.service.schedule.QuartzJobBeanTest</value></property>
+    <bean id="exportQuestion" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="localtest.service.schedule.ExportQuestionJob"></property>
         <property name="durability" value="true" />
         <!--requestsRecovery 为 true，当Quartz服务被中止后，再次启动或集群中其他机器接手任务时会尝试恢复执行之前未完成的所有任务-->
-        <property name="requestsRecovery" value="true" />
+        <property name="requestsRecovery" value="false" />
+        <property name="group" value="exam"/>
     </bean>
-    <bean id="trigger-llf-ten-second" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-        <property name="jobDetail" ref="jobDetail-llf" />
-        <property name="cronExpression" value="0/10 * * * * ?" />
+    <bean id="exportQuestion_trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="exportQuestion" />
+        <property name="cronExpression" value="0/2 * * * * ?" />
+        <property name="group" value="exam"/>
     </bean>
     <!--自定义生成job的工厂-->
-    <bean id="jobFactory" class="priv.llf.quartz.SchedulerFactoryBean"></bean>
+    <bean id="jobFactory" class="priv.llf.quartz.JobFactory"></bean>
 
 </beans>
